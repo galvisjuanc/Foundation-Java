@@ -24,4 +24,8 @@ public class Movie {
         if ( score >= 0 && score <= 5)
             this.score = score;
     }
+
+    public boolean isPopular() {
+        return score >= 4;
+    }
 }
