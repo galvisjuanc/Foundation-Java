@@ -19,4 +19,9 @@ public class Movie {
                 "Genre: " + genre + "\n" +
                 "Score: " + score + "/5";
     }
+
+    public void giveScore(double score) {
+        if ( score >= 0 && score <= 5)
+            this.score = score;
+    }
 }
