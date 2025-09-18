@@ -8,6 +8,7 @@ public class User {
     public String email;
 
     public void watch(Movie movie) {
+        System.out.println(name + " is watching...");
         movie.play();
     }
 }

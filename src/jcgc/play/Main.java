@@ -1,8 +1,7 @@
 package jcgc.play;
 
 import jcgc.play.content.Movie;
-
-import java.util.Scanner;
+import jcgc.play.platform.User;
 
 public class Main {
 
@@ -16,7 +15,11 @@ public class Main {
         movie.genre = "Fantasia";
         movie.giveScore(4.7);
 
+        User user = new User();
+        user.name = "Juan";
+
         System.out.println(movie.getTechnicalDatasheet());
+        user.watch(movie);
 
     }
 }
