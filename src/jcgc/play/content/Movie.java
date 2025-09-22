@@ -1,12 +1,14 @@
 package jcgc.play.content;
 
+import java.time.LocalDate;
+
 public class Movie {
 
     public String title;
     public String description;
     public int duration;
     public String genre;
-    public int releaseYear;
+    public LocalDate releaseDate;
     public double score;
     public boolean available;
 
@@ -15,7 +17,7 @@ public class Movie {
     }
 
     public String getTechnicalDatasheet() {
-        return title + " (" + releaseYear + ")\n" +
+        return title + " (" + releaseDate.getYear() + ")\n" +
                 "Genre: " + genre + "\n" +
                 "Score: " + score + "/5";
     }
