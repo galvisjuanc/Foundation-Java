@@ -3,6 +3,8 @@ package jcgc.play;
 import jcgc.play.content.Movie;
 import jcgc.play.platform.User;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class Main {
         Movie movie = new Movie();
         movie.title = "El señor de los anillos";
         movie.description = "Mi preciosoooooo!";
-        movie.releaseYear = 2001;
+        movie.releaseDate = LocalDate.of(2001, 1, 1);
         movie.genre = "Fantasia";
         movie.giveScore(4.7);
 
