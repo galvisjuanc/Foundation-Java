@@ -16,6 +16,10 @@ public class Main {
         movie.releaseDate = LocalDate.of(2001, 1, 1);
         movie.genre = "Fantasia";
         movie.giveScore(4.7);
+        movie.duration = 120;
+
+        long durationLong = movie.duration;
+        System.out.println("Duration in Long: " + durationLong);
 
         User user = new User();
         user.name = "Juan";
