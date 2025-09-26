@@ -30,7 +30,8 @@ public class Main {
         int calificationInt = (int) movie.score;
         System.out.println("Calification integer: " + calificationInt);
 
-        long prizeNumber = Long.parseLong("25");
+        int prizeNumber = (int) Long.parseLong("25");
+
         System.out.println("Prize number: " + prizeNumber);
 
     }
