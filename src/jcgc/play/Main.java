@@ -18,14 +18,17 @@ public class Main {
         movie.giveScore(4.7);
         movie.duration = 120;
 
-        long durationLong = movie.duration;
-        System.out.println("Duration in Long: " + durationLong);
-
         User user = new User();
         user.name = "Juan";
 
         System.out.println(movie.getTechnicalDatasheet());
         user.watch(movie);
+
+        long durationLong = movie.duration;
+        System.out.println("Duration in Long: " + durationLong);
+
+        int calificationInt = (int) movie.score;
+        System.out.println("Calification integer: " + calificationInt);
 
     }
 }
