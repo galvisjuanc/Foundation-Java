@@ -18,4 +18,12 @@ public class ScannerUtils {
         scanner.nextLine();
         return value;
     }
+
+    public double getDouble(String message) {
+        System.out.println(message + ": ");
+
+        double value = scanner.nextDouble();
+        scanner.nextLine();
+        return value;
+    }
 }
