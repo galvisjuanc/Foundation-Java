@@ -30,15 +30,5 @@ public class Main {
         System.out.println(movie.getTechnicalDatasheet());
         user.watch(movie);
 
-        long durationLong = movie.duration;
-        System.out.println("Duration in Long: " + durationLong);
-
-        int calificationInt = (int) movie.score;
-        System.out.println("Calification integer: " + calificationInt);
-
-        int prizeNumber = (int) Long.parseLong("25");
-
-        System.out.println("Prize number: " + prizeNumber);
-
     }
 }
