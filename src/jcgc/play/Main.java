@@ -2,6 +2,7 @@ package jcgc.play;
 
 import jcgc.play.content.Movie;
 import jcgc.play.platform.User;
+import jcgc.play.util.ScannerUtils;
 
 import java.time.LocalDate;
 
@@ -10,13 +11,18 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("JCGC Play 😎");
 
+        String name = ScannerUtils.getText("Content Name");
+        String genre = ScannerUtils.getText("Genre");
+        int duration = ScannerUtils.getInt("Duration");
+        double score = ScannerUtils.getDouble("Score");
+
         Movie movie = new Movie();
-        movie.title = "El señor de los anillos";
+        movie.title = name;
         movie.description = "Mi preciosoooooo!";
         movie.releaseDate = LocalDate.of(2001, 1, 1);
-        movie.genre = "Fantasia";
-        movie.giveScore(4.7);
-        movie.duration = 120;
+        movie.genre = genre;
+        movie.giveScore(score);
+        movie.duration = duration;
 
         User user = new User();
         user.name = "Juan";
