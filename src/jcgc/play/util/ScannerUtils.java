@@ -10,4 +10,12 @@ public class ScannerUtils {
         System.out.println(message + ": ");
         return scanner.nextLine();
     }
+
+    public int getInt(String message) {
+        System.out.println(message + ": ");
+
+        int value = scanner.nextInt();
+        scanner.nextLine();
+        return value;
+    }
 }
