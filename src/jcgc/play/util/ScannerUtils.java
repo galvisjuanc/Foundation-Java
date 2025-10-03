@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class ScannerUtils {
 
-    public static Scanner scanner = new Scanner(System.in);
+    public static final Scanner SCANNER = new Scanner(System.in);
 
     public static String getText(String message) {
         System.out.println(message + ": ");
-        return scanner.nextLine();
+        return SCANNER.nextLine();
     }
 
     public static int getInt(String message) {
         System.out.println(message + ": ");
 
-        int value = scanner.nextInt();
-        scanner.nextLine();
+        int value = SCANNER.nextInt();
+        SCANNER.nextLine();
         return value;
     }
 
     public static double getDouble(String message) {
         System.out.println(message + ": ");
 
-        double value = scanner.nextDouble();
-        scanner.nextLine();
+        double value = SCANNER.nextDouble();
+        SCANNER.nextLine();
         return value;
     }
 }
