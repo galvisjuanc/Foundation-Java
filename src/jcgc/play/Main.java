@@ -19,7 +19,7 @@ public class Main {
         int duration = ScannerUtils.getInt("Duration");
         double score = ScannerUtils.getDouble("Score");
 
-        Movie movie = new Movie();
+        Movie movie = new Movie(name, duration, genre);
         movie.title = name;
         movie.description = "Mi preciosoooooo!";
         movie.releaseDate = LocalDate.of(2001, 1, 1);
