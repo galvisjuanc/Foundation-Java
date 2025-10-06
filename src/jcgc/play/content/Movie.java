@@ -20,6 +20,11 @@ public class Movie {
         this.available = true;
     }
 
+    public Movie(String title, int duration, String genre, double score) {
+        this(title, duration, genre);
+        this.giveScore(score);
+    }
+
     public void play() {
         System.out.println("Playing: " + title);
     }
