@@ -21,7 +21,7 @@ public class Main {
 
         Movie movie = new Movie(name, duration, genre, score);
 
-        User user = new User("Juan", "juan@hotmail.com");
+        User user = new User("Juan", "juang@hotmail.com");
 
         System.out.println(movie.getTechnicalDatasheet());
         user.watch(movie);
