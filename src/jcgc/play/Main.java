@@ -23,6 +23,5 @@ public class Main {
 
         System.out.println(movie.getTechnicalDatasheet());
         user.watch(movie);
-
     }
 }
