@@ -4,8 +4,6 @@ import jcgc.play.content.Movie;
 import jcgc.play.platform.User;
 import jcgc.play.util.ScannerUtils;
 
-import java.time.LocalDate;
-
 public class Main {
 
     public static final String PLATFORM_NAME = "JCGC Play 😎";
