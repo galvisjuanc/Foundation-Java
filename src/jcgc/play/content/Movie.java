@@ -43,4 +43,11 @@ public class Movie {
     public boolean isPopular() {
         return score >= 4;
     }
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
