@@ -8,9 +8,9 @@ public class MainStackHeap {
         Movie movieHarryPotter = new Movie("Harry Poter", 200, "Ciencia Ficción");
 
         movieLionKing = movieHarryPotter;
-        movieLionKing.title = "Spiderman";
+        //movieLionKing.title = "Spiderman";
 
-        System.out.println("LionKing: " + movieLionKing.title);
-        System.out.println("Harry Potter: " + movieHarryPotter.title);
+        //System.out.println("LionKing: " + movieLionKing.title);
+        //System.out.println("Harry Potter: " + movieHarryPotter.title);
     }
 }

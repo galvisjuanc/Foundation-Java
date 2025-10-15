@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class Movie {
 
-    public String title;
-    public String description;
-    public int duration;
-    public String genre;
-    public LocalDate releaseDate;
-    public double score;
-    public boolean available;
+    private String title;
+    private String description;
+    private int duration;
+    private String genre;
+    private LocalDate releaseDate;
+    private double score;
+    private boolean available;
 
     public Movie(String title, int duration, String genre) {
         this.title = title;
