@@ -20,4 +20,16 @@ public class User {
         System.out.println(name + " is watching...");
         movie.play();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String email() {
+        return email;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
 }
