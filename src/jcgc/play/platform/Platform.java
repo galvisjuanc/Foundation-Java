@@ -15,4 +15,12 @@ public class Platform {
     public void addMovie(Movie movie) {
         this.movies.add(movie);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
 }
