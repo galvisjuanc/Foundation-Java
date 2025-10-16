@@ -2,6 +2,7 @@ package jcgc.play.platform;
 
 import jcgc.play.content.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Platform {
@@ -10,6 +11,7 @@ public class Platform {
 
     public Platform(String name) {
         this.name = name;
+        this.movies = new ArrayList<>();
     }
 
     public void addMovie(Movie movie) {
