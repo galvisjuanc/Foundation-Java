@@ -18,6 +18,12 @@ public class Platform {
         this.movies.add(movie);
     }
 
+    public void showTitle() {
+        for (Movie movie : this.movies) {
+            System.out.println(movie.getTitle());
+        }
+    }
+
     public String getName() {
         return name;
     }
