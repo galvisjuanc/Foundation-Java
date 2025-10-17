@@ -24,6 +24,10 @@ public class Platform {
         }
     }
 
+    public void deleteMovie(Movie movie) {
+        this.movies.remove(movie);
+    }
+
     public String getName() {
         return name;
     }
