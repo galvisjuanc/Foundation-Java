@@ -28,6 +28,7 @@ public class Main {
         User user = new User("Juan", "juang@hotmail.com");
 
         System.out.println(movie.getTechnicalDatasheet());
+        platform.showTitle();
         user.watch(movie);
     }
 }
