@@ -21,13 +21,16 @@ public class Main {
         double score = ScannerUtils.getDouble("Score");
 
         Movie movie = new Movie(name, duration, genre, score);
+        Movie movie2 = new Movie("F1 The Movie", 170, "Action", 4);
         platform.addMovie(movie);
+        platform.addMovie(movie2);
 
         System.out.println("Element Size of the list: " + platform.getMovies().size());
 
         User user = new User("Juan", "juang@hotmail.com");
 
         System.out.println(movie.getTechnicalDatasheet());
+
         platform.showTitle();
         user.watch(movie);
     }
