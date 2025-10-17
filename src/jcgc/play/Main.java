@@ -23,7 +23,7 @@ public class Main {
         Movie movie = new Movie(name, duration, genre, score);
         platform.addMovie(movie);
 
-        System.out.println("Numero de elementos de la lista: " + platform.getMovies().size());
+        System.out.println("Element Size of the list: " + platform.getMovies().size());
 
         User user = new User("Juan", "juang@hotmail.com");
 
