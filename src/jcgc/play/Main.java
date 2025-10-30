@@ -10,17 +10,12 @@ public class Main {
     public static final String PLATFORM_NAME = "JCGC Play 😎";
     public static final String VERSION = "1.0.0";
 
+    public static final int EXIT = 5;
+
     public static void main(String[] args) {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
-        /* 1. Add content
-        * 2. Show everything
-        * 3. Look for title
-        * 4. Delete
-        * 5. Exit
-        * */
-
-        while(true) {
+        while (true) {
             int optionChosen = ScannerUtils.getInt("""
                     Choose an option:
                     1. Add Content.
@@ -32,7 +27,7 @@ public class Main {
 
             System.out.println("Chosed Option: " + optionChosen);
 
-            if (optionChosen == 5) {
+            if (optionChosen == EXIT) {
                 System.exit(0);
             }
         }
