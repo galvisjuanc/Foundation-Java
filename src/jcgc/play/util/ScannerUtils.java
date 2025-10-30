@@ -12,7 +12,7 @@ public class ScannerUtils {
     }
 
     public static int getInt(String message) {
-        System.out.println(message + ": ");
+        System.out.print(message + ": ");
 
         while(!SCANNER.hasNextInt()) {
             System.out.println("Not a valid option --> " + message + ": ");
