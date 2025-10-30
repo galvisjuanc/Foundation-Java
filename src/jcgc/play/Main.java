@@ -10,9 +10,14 @@ public class Main {
     public static final String PLATFORM_NAME = "JCGC Play 😎";
     public static final String VERSION = "1.0.0";
 
+    public static final int ADD = 1;
+    public static final int SHOW_EVERYTHING = 2;
+    public static final int LOOK_TITLE = 3;
+    public static final int DELETE = 4;
     public static final int EXIT = 5;
 
     public static void main(String[] args) {
+        Platform platform = new Platform(PLATFORM_NAME);
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
         while (true) {
@@ -27,22 +32,21 @@ public class Main {
 
             System.out.println("Chosed Option: " + optionChosen);
 
+            if(optionChosen == ADD) {
+                String name = ScannerUtils.getText("Content Name");
+                String genre = ScannerUtils.getText("Genre");
+                int duration = ScannerUtils.getInt("Duration");
+                double score = ScannerUtils.getDouble("Score");
+
+                platform.addMovie(new Movie(name, duration, genre, score));
+            }
+
             if (optionChosen == EXIT) {
                 System.exit(0);
             }
         }
 
-        /*Platform platform = new Platform(PLATFORM_NAME);
-
-        String name = ScannerUtils.getText("Content Name");
-        String genre = ScannerUtils.getText("Genre");
-        int duration = ScannerUtils.getInt("Duration");
-        double score = ScannerUtils.getDouble("Score");
-
-        Movie movie = new Movie(name, duration, genre, score);
-        Movie movie2 = new Movie("F1 The Movie", 170, "Action", 4);
-        platform.addMovie(movie);
-        platform.addMovie(movie2);
+        /*
 
         System.out.println("Element Size of the list: " + platform.getMovies().size());
 
