@@ -27,23 +27,31 @@ public class Main {
                     3. Look for Title.
                     4. Delete.
                     5. Exit.
+                    
+                    Option 
                     """);
 
             System.out.println("Chosed Option: " + optionChosen);
 
-            if(optionChosen == ADD) {
-                String name = ScannerUtils.getText("Content Name");
-                String genre = ScannerUtils.getText("Genre");
-                int duration = ScannerUtils.getInt("Duration");
-                double score = ScannerUtils.getDouble("Score");
+            switch (optionChosen) {
+                case ADD -> {
 
-                platform.addMovie(new Movie(name, duration, genre, score));
-            } else if(optionChosen == SHOW_EVERYTHING) {
-                platform.showTitles();
-            }
+                    String name = ScannerUtils.getText("Content Name");
+                    String genre = ScannerUtils.getText("Genre");
+                    int duration = ScannerUtils.getInt("Duration");
+                    double score = ScannerUtils.getDouble("Score");
 
-            if (optionChosen == EXIT) {
-                System.exit(0);
+                    platform.addMovie(new Movie(name, duration, genre, score));
+                }
+                case SHOW_EVERYTHING -> platform.showTitles();
+                case LOOK_TITLE -> {
+
+                }
+                case DELETE -> {
+
+                }
+
+                case EXIT -> System.exit(0);
             }
         }
 
