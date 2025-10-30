@@ -18,7 +18,7 @@ public class Platform {
         this.movies.add(movie);
     }
 
-    public void showTitle() {
+    public void showTitles() {
         for (Movie movie : this.movies) {
             System.out.println(movie.getTitle());
         }

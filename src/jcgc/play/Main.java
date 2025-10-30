@@ -2,7 +2,6 @@ package jcgc.play;
 
 import jcgc.play.content.Movie;
 import jcgc.play.platform.Platform;
-import jcgc.play.platform.User;
 import jcgc.play.util.ScannerUtils;
 
 public class Main {
@@ -39,6 +38,8 @@ public class Main {
                 double score = ScannerUtils.getDouble("Score");
 
                 platform.addMovie(new Movie(name, duration, genre, score));
+            } else if(optionChosen == SHOW_EVERYTHING) {
+                platform.showTitles();
             }
 
             if (optionChosen == EXIT) {
