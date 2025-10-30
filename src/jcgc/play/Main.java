@@ -13,6 +13,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
+        /* 1. Add content
+        * 2. Show everything
+        * 3. Look for title
+        * 4. Delete
+        * 5. Exit
+        * */
+
+
         Platform platform = new Platform(PLATFORM_NAME);
 
         String name = ScannerUtils.getText("Content Name");
