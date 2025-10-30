@@ -14,6 +14,11 @@ public class ScannerUtils {
     public static int getInt(String message) {
         System.out.println(message + ": ");
 
+        while(!SCANNER.hasNextInt()) {
+            System.out.println("Not a valid option --> " + message + ": ");
+            SCANNER.next();
+        }
+
         int value = SCANNER.nextInt();
         SCANNER.nextLine();
         return value;
