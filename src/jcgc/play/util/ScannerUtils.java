@@ -27,6 +27,11 @@ public class ScannerUtils {
     public static double getDouble(String message) {
         System.out.println(message + ": ");
 
+        while(!SCANNER.hasNextDouble()) {
+            System.out.println("Not a valid option --> " + message + ": ");
+            SCANNER.next();
+        }
+
         double value = SCANNER.nextDouble();
         SCANNER.nextLine();
         return value;
