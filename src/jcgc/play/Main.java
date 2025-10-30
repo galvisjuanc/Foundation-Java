@@ -20,8 +20,24 @@ public class Main {
         * 5. Exit
         * */
 
+        while(true) {
+            int optionChosen = ScannerUtils.getInt("""
+                    Choose an option:
+                    1. Add Content.
+                    2. Show Everything.
+                    3. Look for Title.
+                    4. Delete.
+                    5. Exit.
+                    """);
 
-        Platform platform = new Platform(PLATFORM_NAME);
+            System.out.println("Chosed Option: " + optionChosen);
+
+            if (optionChosen == 5) {
+                System.exit(0);
+            }
+        }
+
+        /*Platform platform = new Platform(PLATFORM_NAME);
 
         String name = ScannerUtils.getText("Content Name");
         String genre = ScannerUtils.getText("Genre");
@@ -40,6 +56,6 @@ public class Main {
         System.out.println(movie.getTechnicalDatasheet());
 
         platform.showTitle();
-        user.watch(movie);
+        user.watch(movie);*/
     }
 }
