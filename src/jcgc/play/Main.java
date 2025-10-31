@@ -35,7 +35,6 @@ public class Main {
 
             switch (optionChosen) {
                 case ADD -> {
-
                     String name = ScannerUtils.getText("Content Name");
                     String genre = ScannerUtils.getText("Genre");
                     int duration = ScannerUtils.getInt("Duration");
@@ -43,7 +42,9 @@ public class Main {
 
                     platform.addMovie(new Movie(name, duration, genre, score));
                 }
+
                 case SHOW_EVERYTHING -> platform.showTitles();
+
                 case LOOK_TITLE -> {
                     String lookTitle = ScannerUtils.getText("Name of the movie by title to look for: ");
                     Movie movie = platform.lookForTitle(lookTitle);
@@ -54,6 +55,7 @@ public class Main {
                         System.out.println(lookTitle + " does not exist inside the platform --> " + platform.getName());
                     }
                 }
+
                 case DELETE -> {
                     String titleToDelete = ScannerUtils.getText("Name of the movie by title to delete: ");
                     Movie movie = platform.lookForTitle(titleToDelete);
