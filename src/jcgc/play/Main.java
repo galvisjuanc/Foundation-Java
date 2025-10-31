@@ -55,23 +55,20 @@ public class Main {
                     }
                 }
                 case DELETE -> {
+                    String titleToDelete = ScannerUtils.getText("Name of the movie by title to delete: ");
+                    Movie movie = platform.lookForTitle(titleToDelete);
 
+                    if (movie != null) {
+                        platform.deleteMovie(movie);
+                        System.out.println("The movie has been deleted from the platform. --> " + movie.getTitle());
+                    } else  {
+                        System.out.println(titleToDelete + " does not exist inside the platform --> " + platform.getName());
+                    }
                 }
 
                 case EXIT -> System.exit(0);
             }
         }
-
-        /*
-
-        System.out.println("Element Size of the list: " + platform.getMovies().size());
-
-        User user = new User("Juan", "juang@hotmail.com");
-
-        System.out.println(movie.getTechnicalDatasheet());
-
-        platform.showTitle();
-        user.watch(movie);*/
     }
 
     private static void loadMovies(Platform platform) {
