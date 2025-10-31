@@ -19,6 +19,8 @@ public class Main {
         Platform platform = new Platform(PLATFORM_NAME);
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
+        loadMovies(platform);
+
         while (true) {
             int optionChosen = ScannerUtils.getInt("""
                     Choose an option:
