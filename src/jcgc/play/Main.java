@@ -45,7 +45,14 @@ public class Main {
                 }
                 case SHOW_EVERYTHING -> platform.showTitles();
                 case LOOK_TITLE -> {
+                    String lookTitle = ScannerUtils.getText("Name of the movie by title to look for: ");
+                    Movie movie = platform.lookForTitle(lookTitle);
 
+                    if (movie != null) {
+                        System.out.println(movie.getTechnicalDatasheet());
+                    } else {
+                        System.out.println(lookTitle + " does not exist inside the platform --> " + platform.getName());
+                    }
                 }
                 case DELETE -> {
 
