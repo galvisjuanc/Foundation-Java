@@ -31,8 +31,6 @@ public class Main {
                     Option 
                     """);
 
-            System.out.println("Chosed Option: " + optionChosen);
-
             switch (optionChosen) {
                 case ADD -> {
 
@@ -65,5 +63,18 @@ public class Main {
 
         platform.showTitle();
         user.watch(movie);*/
+    }
+
+    private static void loadMovies(Platform platform) {
+        platform.addMovie(new Movie("Shrek", 90, "Comedy"));
+        platform.addMovie(new Movie("Inception", 148, "Science Fiction"));
+        platform.addMovie(new Movie("Titanic", 195, "Drama", 4.6));
+        platform.addMovie(new Movie("John Wick", 110, "Action"));
+        platform.addMovie(new Movie("El Conjuro", 120, "Thriller", 3.0));
+        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy"));
+        platform.addMovie(new Movie("Interstellar", 169, "Science Fiction", 5));
+        platform.addMovie(new Movie("Joker", 130, "Drama"));
+        platform.addMovie(new Movie("Toy Story", 85, "Animada"));
+        platform.addMovie(new Movie("Avengers: Endgame", 181, "Action", 4.8));
     }
 }
