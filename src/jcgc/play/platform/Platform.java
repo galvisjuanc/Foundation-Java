@@ -27,13 +27,10 @@ public class Platform {
     }
 
     public Movie lookForTitle(String title) {
-        for (Movie movie : movies) {
-            if (movie.getTitle().equalsIgnoreCase(title)) {
-                return movie;
-            }
-        }
-
-        return null;
+        return movies.stream()
+                .filter(movieContent -> movieContent.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElse(null);
     }
 
     public String getName() {
