@@ -64,8 +64,8 @@ public class Main {
                     String lookGenre = ScannerUtils.getText("Name of the Genre we're looking for: ");
 
                     List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
-                    System.out.println(moviesByGenre.size() + " encontrados para el genero " + lookGenre);
-                    moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet()));
+                    System.out.println(moviesByGenre.size() + " found for this genre: " + lookGenre);
+                    moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
                 }
 
                 case DELETE -> {
