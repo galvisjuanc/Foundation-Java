@@ -19,7 +19,9 @@ public class Platform {
     }
 
     public void showTitles() {
-        movies.forEach(movieContent -> System.out.println(movieContent.getTitle()));
+        movies.stream()
+                .map(Movie::getTitle)
+                .toList();
     }
 
     public void deleteMovie(Movie movie) {
