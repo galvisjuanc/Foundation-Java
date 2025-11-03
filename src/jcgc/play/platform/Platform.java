@@ -3,6 +3,7 @@ package jcgc.play.platform;
 import jcgc.play.content.Movie;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Platform {
@@ -45,6 +46,13 @@ public class Platform {
         return movies.stream()
                 .mapToInt(Movie::getDuration)
                 .sum();
+    }
+
+    public List<Movie> getPopularMovies(int quantity) {
+        return movies.stream()
+                .sorted(Comparator.comparing(Movie::getScore).reversed())
+                .limit(quantity)
+                .toList();
     }
 
     public String getName() {

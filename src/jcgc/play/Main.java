@@ -15,6 +15,7 @@ public class Main {
     public static final int SHOW_EVERYTHING = 2;
     public static final int LOOK_TITLE = 3;
     public static final int LOOK_GENRE = 4;
+    public static final int LOOK_POPULAR_MOVIES = 5;
     public static final int DELETE = 8;
     public static final int EXIT = 9;
 
@@ -23,6 +24,7 @@ public class Main {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
         loadMovies(platform);
+        System.out.println("More than " + platform.getTotalDuration() + " minutes of content! \n");
 
         while (true) {
             int optionChosen = ScannerUtils.getInt("""
@@ -31,6 +33,7 @@ public class Main {
                     2. Show Everything.
                     3. Look for Title.
                     4. Look for Genre.
+                    5. Look for Popular Movies.
                     8. Delete.
                     9. Exit.
                     
@@ -71,6 +74,13 @@ public class Main {
                     moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
                 }
 
+                case LOOK_POPULAR_MOVIES -> {
+                    int quantity = ScannerUtils.getInt("Quantity of movies to look for: ");
+                    List<Movie> popularMovies = platform.getPopularMovies(quantity);
+
+                    popularMovies.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
+                }
+
                 case DELETE -> {
                     String titleToDelete = ScannerUtils.getText("Name of the movie by title to delete: ");
                     Movie movie = platform.lookForTitle(titleToDelete);
@@ -89,15 +99,15 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
-        platform.addMovie(new Movie("Shrek", 90, "Comedy"));
+        platform.addMovie(new Movie("Shrek", 90, "Comedy", 4));
         platform.addMovie(new Movie("Inception", 148, "Science Fiction"));
         platform.addMovie(new Movie("Titanic", 195, "Drama", 4.6));
-        platform.addMovie(new Movie("John Wick", 110, "Action"));
+        platform.addMovie(new Movie("John Wick", 110, "Action", 4.2));
         platform.addMovie(new Movie("El Conjuro", 120, "Thriller", 3.0));
-        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy"));
+        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy", 4.3));
         platform.addMovie(new Movie("Interstellar", 169, "Science Fiction", 5));
-        platform.addMovie(new Movie("Joker", 130, "Drama"));
-        platform.addMovie(new Movie("Toy Story", 85, "Animada"));
+        platform.addMovie(new Movie("Joker", 130, "Drama", 4.7));
+        platform.addMovie(new Movie("Toy Story", 85, "Animada",5));
         platform.addMovie(new Movie("Avengers: Endgame", 181, "Action", 4.8));
     }
 }
