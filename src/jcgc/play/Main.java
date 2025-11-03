@@ -47,7 +47,10 @@ public class Main {
                     platform.addMovie(new Movie(name, duration, genre, score));
                 }
 
-                case SHOW_EVERYTHING -> platform.showTitles();
+                case SHOW_EVERYTHING -> {
+                    List<String> showMovieTitles = platform.showTitles();
+                    showMovieTitles.forEach(System.out::println);
+                }
 
                 case LOOK_TITLE -> {
                     String lookTitle = ScannerUtils.getText("Name of the movie by title to look for: ");
