@@ -23,6 +23,7 @@ public class Main {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
         loadMovies(platform);
+        System.out.println("More than " + platform.getTotalDuration() + " minutes of content! \n");
 
         while (true) {
             int optionChosen = ScannerUtils.getInt("""
@@ -89,15 +90,15 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
-        platform.addMovie(new Movie("Shrek", 90, "Comedy"));
+        platform.addMovie(new Movie("Shrek", 90, "Comedy", 4));
         platform.addMovie(new Movie("Inception", 148, "Science Fiction"));
         platform.addMovie(new Movie("Titanic", 195, "Drama", 4.6));
-        platform.addMovie(new Movie("John Wick", 110, "Action"));
+        platform.addMovie(new Movie("John Wick", 110, "Action", 4.2));
         platform.addMovie(new Movie("El Conjuro", 120, "Thriller", 3.0));
-        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy"));
+        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy", 4.3));
         platform.addMovie(new Movie("Interstellar", 169, "Science Fiction", 5));
-        platform.addMovie(new Movie("Joker", 130, "Drama"));
-        platform.addMovie(new Movie("Toy Story", 85, "Animada"));
+        platform.addMovie(new Movie("Joker", 130, "Drama", 4.7));
+        platform.addMovie(new Movie("Toy Story", 85, "Animada",5));
         platform.addMovie(new Movie("Avengers: Endgame", 181, "Action", 4.8));
     }
 }
