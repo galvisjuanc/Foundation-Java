@@ -15,6 +15,7 @@ public class Main {
     public static final int SHOW_EVERYTHING = 2;
     public static final int LOOK_TITLE = 3;
     public static final int LOOK_GENRE = 4;
+    public static final int LOOK_POPULAR_MOVIES = 5;
     public static final int DELETE = 8;
     public static final int EXIT = 9;
 
@@ -32,6 +33,7 @@ public class Main {
                     2. Show Everything.
                     3. Look for Title.
                     4. Look for Genre.
+                    5. Look for Popular Movies.
                     8. Delete.
                     9. Exit.
                     
@@ -70,6 +72,13 @@ public class Main {
                     List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
                     System.out.println(moviesByGenre.size() + " found for this genre: " + lookGenre);
                     moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
+                }
+
+                case LOOK_POPULAR_MOVIES -> {
+                    int quantity = ScannerUtils.getInt("Quantity of movies to look for: ");
+                    List<Movie> popularMovies = platform.getPopularMovies(quantity);
+
+                    popularMovies.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
                 }
 
                 case DELETE -> {
