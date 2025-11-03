@@ -41,6 +41,12 @@ public class Platform {
                 .toList();
     }
 
+    public int getTotalDuration() {
+        return movies.stream()
+                .mapToInt(Movie::getDuration)
+                .sum();
+    }
+
     public String getName() {
         return name;
     }
