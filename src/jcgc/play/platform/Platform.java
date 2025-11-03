@@ -33,6 +33,12 @@ public class Platform {
                 .orElse(null);
     }
 
+    public List<Movie> lookForGenre(String genre) {
+        return movies.stream()
+                .filter(movieContent -> movieContent.getGenre().equalsIgnoreCase(genre))
+                .toList();
+    }
+
     public String getName() {
         return name;
     }
