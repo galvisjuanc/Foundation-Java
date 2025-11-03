@@ -22,6 +22,8 @@ public class Platform {
         for (Movie movie : this.movies) {
             System.out.println(movie.getTitle());
         }
+
+        movies.forEach(content -> System.out.println(content.getTitle()));
     }
 
     public void deleteMovie(Movie movie) {
