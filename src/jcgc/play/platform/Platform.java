@@ -19,11 +19,7 @@ public class Platform {
     }
 
     public void showTitles() {
-        for (Movie movie : this.movies) {
-            System.out.println(movie.getTitle());
-        }
-
-        movies.forEach(content -> System.out.println(content.getTitle()));
+        movies.forEach(movieContent -> System.out.println(movieContent.getTitle()));
     }
 
     public void deleteMovie(Movie movie) {
