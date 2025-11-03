@@ -4,6 +4,8 @@ import jcgc.play.content.Movie;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.ScannerUtils;
 
+import java.util.List;
+
 public class Main {
 
     public static final String PLATFORM_NAME = "JCGC Play 😎";
@@ -12,8 +14,9 @@ public class Main {
     public static final int ADD = 1;
     public static final int SHOW_EVERYTHING = 2;
     public static final int LOOK_TITLE = 3;
-    public static final int DELETE = 4;
-    public static final int EXIT = 5;
+    public static final int LOOK_GENRE = 4;
+    public static final int DELETE = 8;
+    public static final int EXIT = 9;
 
     public static void main(String[] args) {
         Platform platform = new Platform(PLATFORM_NAME);
@@ -27,8 +30,9 @@ public class Main {
                     1. Add Content.
                     2. Show Everything.
                     3. Look for Title.
-                    4. Delete.
-                    5. Exit.
+                    4. Look for Genre.
+                    8. Delete.
+                    9. Exit.
                     
                     Option 
                     """);
@@ -54,6 +58,14 @@ public class Main {
                     } else {
                         System.out.println(lookTitle + " does not exist inside the platform --> " + platform.getName());
                     }
+                }
+
+                case LOOK_GENRE -> {
+                    String lookGenre = ScannerUtils.getText("Name of the Genre we're looking for: ");
+
+                    List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
+                    System.out.println(moviesByGenre.size() + " encontrados para el genero " + lookGenre);
+                    moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet()));
                 }
 
                 case DELETE -> {
