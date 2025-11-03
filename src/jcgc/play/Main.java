@@ -37,7 +37,7 @@ public class Main {
                     8. Delete.
                     9. Exit.
                     
-                    Option 
+                    Option -->
                     """);
 
             switch (optionChosen) {
