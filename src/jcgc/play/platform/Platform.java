@@ -18,8 +18,8 @@ public class Platform {
         this.movies.add(movie);
     }
 
-    public void showTitles() {
-        movies.stream()
+    public List<String> showTitles() {
+        return movies.stream()
                 .map(Movie::getTitle)
                 .toList();
     }
