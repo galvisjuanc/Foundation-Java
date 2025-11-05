@@ -41,12 +41,18 @@ public class ScannerUtils {
 
     public static Genre getGenre(String message) {
         while (true) {
-            String genreInput = getText(message);
+            System.out.println(message + "... Options: ");
+            for(Genre genre : Genre.values()) {
+                System.out.println("- " + genre.name());
+            }
+
+            System.out.println("Which one? --> ");
+            String genreInput = SCANNER.nextLine();
 
             try {
-                return Genre.valueOf(genreInput);
+                return Genre.valueOf(genreInput.toUpperCase());
             } catch (IllegalArgumentException e) {
-                System.out.println("Not a valid option --> " + message + ": ");
+                System.out.println("Not a valid genre --> " + message);
             }
         }
     }
