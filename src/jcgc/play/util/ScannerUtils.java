@@ -1,5 +1,7 @@
 package jcgc.play.util;
 
+import jcgc.play.content.Genre;
+
 import java.util.Scanner;
 
 public class ScannerUtils {
@@ -35,5 +37,17 @@ public class ScannerUtils {
         double value = SCANNER.nextDouble();
         SCANNER.nextLine();
         return value;
+    }
+
+    public static Genre getGenre(String message) {
+        while (true) {
+            String genreInput = getText(message);
+
+            try {
+                return Genre.valueOf(genreInput);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Not a valid option --> " + message + ": ");
+            }
+        }
     }
 }
