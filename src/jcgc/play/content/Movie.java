@@ -7,12 +7,12 @@ public class Movie {
     private String title;
     private String description;
     private int duration;
-    private String genre;
+    private Genre genre;
     private LocalDate releaseDate;
     private double score;
     private boolean available;
 
-    public Movie(String title, int duration, String genre) {
+    public Movie(String title, int duration, Genre genre) {
         this.title = title;
         this.duration = duration;
         this.genre = genre;
@@ -20,7 +20,7 @@ public class Movie {
         this.available = true;
     }
 
-    public Movie(String title, int duration, String genre, double score) {
+    public Movie(String title, int duration, Genre genre, double score) {
         this(title, duration, genre);
         this.giveScore(score);
     }
@@ -67,12 +67,8 @@ public class Movie {
         this.duration = duration;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
         return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public LocalDate getReleaseDate() {
