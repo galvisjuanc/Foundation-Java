@@ -1,5 +1,6 @@
 package jcgc.play;
 
+import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.ScannerUtils;
@@ -43,7 +44,7 @@ public class Main {
             switch (optionChosen) {
                 case ADD -> {
                     String name = ScannerUtils.getText("Content Name");
-                    String genre = ScannerUtils.getText("Genre");
+                    Genre genre = Genre.valueOf(ScannerUtils.getText("Genre"));
                     int duration = ScannerUtils.getInt("Duration");
                     double score = ScannerUtils.getDouble("Score");
 
@@ -67,7 +68,7 @@ public class Main {
                 }
 
                 case LOOK_GENRE -> {
-                    String lookGenre = ScannerUtils.getText("Name of the Genre we're looking for: ");
+                    Genre lookGenre = Genre.valueOf(ScannerUtils.getText("Name of the Genre we're looking for: "));
 
                     List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
                     System.out.println(moviesByGenre.size() + " found for this genre: " + lookGenre);
@@ -99,15 +100,17 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
-        platform.addMovie(new Movie("Shrek", 90, "Comedy", 4));
-        platform.addMovie(new Movie("Inception", 148, "Science Fiction"));
-        platform.addMovie(new Movie("Titanic", 195, "Drama", 4.6));
-        platform.addMovie(new Movie("John Wick", 110, "Action", 4.2));
-        platform.addMovie(new Movie("El Conjuro", 120, "Thriller", 3.0));
-        platform.addMovie(new Movie("Finding Nemo", 100, "Comedy", 4.3));
-        platform.addMovie(new Movie("Interstellar", 169, "Science Fiction", 5));
-        platform.addMovie(new Movie("Joker", 130, "Drama", 4.7));
-        platform.addMovie(new Movie("Toy Story", 85, "Animada",5));
-        platform.addMovie(new Movie("Avengers: Endgame", 181, "Action", 4.8));
+        platform.addMovie(new Movie("Shrek", 90, Genre.COMEDY, 4));
+        platform.addMovie(new Movie("Inception", 148, Genre.SCIENCE_FICTION));
+        platform.addMovie(new Movie("Titanic", 195, Genre.DRAMA, 4.6));
+        platform.addMovie(new Movie("John Wick", 110, Genre.ACTION, 4.2));
+        platform.addMovie(new Movie("El Conjuro", 120, Genre.TERROR, 3.0));
+        platform.addMovie(new Movie("Finding Nemo", 100, Genre.COMEDY, 4.3));
+        platform.addMovie(new Movie("Interstellar", 169, Genre.SCIENCE_FICTION, 5));
+        platform.addMovie(new Movie("Joker", 130, Genre.DRAMA, 4.7));
+        platform.addMovie(new Movie("Toy Story", 85, Genre.COMEDY,5));
+        platform.addMovie(new Movie("Avengers: Endgame", 181, Genre.ACTION, 4.8));
+        platform.addMovie(new Movie("Naruto Shipudden: The Last", 123, Genre.ANIME, 4.1));
+        platform.addMovie(new Movie("Your Name", 131, Genre.ANIME, 4.2));
     }
 }
