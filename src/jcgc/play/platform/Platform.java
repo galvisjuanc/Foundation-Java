@@ -1,5 +1,6 @@
 package jcgc.play.platform;
 
+import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
 
 import java.util.ArrayList;
@@ -36,9 +37,9 @@ public class Platform {
                 .orElse(null);
     }
 
-    public List<Movie> lookForGenre(String genre) {
+    public List<Movie> lookForGenre(Genre genre) {
         return movies.stream()
-                .filter(movieContent -> movieContent.getGenre().equalsIgnoreCase(genre))
+                .filter(movieContent -> movieContent.getGenre().equals(genre))
                 .toList();
     }
 
