@@ -44,7 +44,7 @@ public class Main {
             switch (optionChosen) {
                 case ADD -> {
                     String name = ScannerUtils.getText("Content Name");
-                    Genre genre = Genre.valueOf(ScannerUtils.getText("Genre"));
+                    Genre genre = ScannerUtils.getGenre("Genre");
                     int duration = ScannerUtils.getInt("Duration");
                     double score = ScannerUtils.getDouble("Score");
 
@@ -68,7 +68,7 @@ public class Main {
                 }
 
                 case LOOK_GENRE -> {
-                    Genre lookGenre = Genre.valueOf(ScannerUtils.getText("Name of the Genre we're looking for: "));
+                    Genre lookGenre = ScannerUtils.getGenre("Name of the Genre we're looking for: ");
 
                     List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
                     System.out.println(moviesByGenre.size() + " found for this genre: " + lookGenre);
