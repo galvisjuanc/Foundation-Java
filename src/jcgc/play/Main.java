@@ -2,6 +2,7 @@ package jcgc.play;
 
 import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
+import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.ScannerUtils;
 
@@ -48,7 +49,12 @@ public class Main {
                     int duration = ScannerUtils.getInt("Duration");
                     double score = ScannerUtils.getDouble("Score");
 
-                    platform.addMovie(new Movie(name, duration, genre, score));
+                    try {
+                        platform.addMovie(new Movie(name, duration, genre, score));
+                    } catch (MovieExistException e) {
+                        System.out.println(e.getMessage());
+                    }
+
                 }
 
                 case SHOW_EVERYTHING -> {
