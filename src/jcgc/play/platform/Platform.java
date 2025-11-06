@@ -2,6 +2,7 @@ package jcgc.play.platform;
 
 import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
+import jcgc.play.exception.MovieExistException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,6 +18,13 @@ public class Platform {
     }
 
     public void addMovie(Movie movie) {
+
+        Movie movieContent = this.lookForTitle(movie.getTitle());
+
+        if (movieContent != null) {
+            throw new MovieExistException(movie.getTitle());
+        }
+
         this.movies.add(movie);
     }
 
