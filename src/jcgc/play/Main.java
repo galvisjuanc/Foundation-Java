@@ -27,7 +27,7 @@ public class Main {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
         loadMovies(platform);
-        System.out.println("More than " + platform.getTotalDuration() + " minutes of content! \n");
+        System.out.println("More than " + platform.getTotalDuration() + " minutes of content movies! \n");
 
         while (true) {
             int optionChosen = ScannerUtils.getInt("""
