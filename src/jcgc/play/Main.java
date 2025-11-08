@@ -2,6 +2,7 @@ package jcgc.play;
 
 import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
+import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.ScannerUtils;
@@ -58,8 +59,8 @@ public class Main {
                 }
 
                 case SHOW_EVERYTHING -> {
-                    List<String> showMovieTitles = platform.showTitles();
-                    showMovieTitles.forEach(System.out::println);
+                    List<SummaryContent> showMovieTitles = platform.getSummaryContents();
+                    showMovieTitles.forEach(summaryContent -> System.out.println(summaryContent.toString()));
                 }
 
                 case LOOK_TITLE -> {
