@@ -2,6 +2,7 @@ package jcgc.play.platform;
 
 import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
+import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 
 import java.util.ArrayList;
@@ -31,6 +32,12 @@ public class Platform {
     public List<String> showTitles() {
         return movies.stream()
                 .map(Movie::getTitle)
+                .toList();
+    }
+
+    public List<SummaryContent> getSummaryContents() {
+        return movies.stream()
+                .map(mc -> new SummaryContent(mc.getTitle(), mc.getDuration(), mc.getGenre()))
                 .toList();
     }
 
