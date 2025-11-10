@@ -5,17 +5,17 @@ import jcgc.play.content.Movie;
 import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Platform {
     private String name;
     private List<Movie> movies;
+    private Map<Movie, Integer> moviesMapViews;
 
     public Platform(String name) {
         this.name = name;
         this.movies = new ArrayList<>();
+        this.moviesMapViews = new HashMap<>();
     }
 
     public void addMovie(Movie movie) {
