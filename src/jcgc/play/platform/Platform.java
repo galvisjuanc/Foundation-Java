@@ -29,6 +29,14 @@ public class Platform {
         this.movies.add(movie);
     }
 
+    public void playMovie(Movie movie) {
+        int actualCounter = moviesMapViews.getOrDefault(movie, 0);
+        System.out.println(movie.getTitle() + " has been played " +  actualCounter + " times.");
+
+        moviesMapViews.put(movie, actualCounter + 1);
+        movie.play();
+    }
+
     public List<String> showTitles() {
         return movies.stream()
                 .map(Movie::getTitle)
