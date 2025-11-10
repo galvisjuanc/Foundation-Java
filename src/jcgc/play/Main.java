@@ -19,6 +19,7 @@ public class Main {
     public static final int LOOK_TITLE = 3;
     public static final int LOOK_GENRE = 4;
     public static final int LOOK_POPULAR_MOVIES = 5;
+    public static final int PLAY = 6;
     public static final int DELETE = 8;
     public static final int EXIT = 9;
 
@@ -37,6 +38,7 @@ public class Main {
                     3. Look for Title.
                     4. Look for Genre.
                     5. Look for Popular Movies.
+                    6. Play.
                     8. Delete.
                     9. Exit.
                     
@@ -87,6 +89,18 @@ public class Main {
                     List<Movie> popularMovies = platform.getPopularMovies(quantity);
 
                     popularMovies.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
+                }
+
+                case PLAY -> {
+                    String playTitle = ScannerUtils.getText("Name of the movie by title to play: ");
+                    Movie movie = platform.lookForTitle(playTitle);
+
+                    if (movie != null) {
+                        platform.playMovie(movie);
+                        System.out.println("The movie has been deleted from the platform. --> " + movie.getTitle());
+                    } else  {
+                        System.out.println(playTitle + " does not exist.");
+                    }
                 }
 
                 case DELETE -> {
