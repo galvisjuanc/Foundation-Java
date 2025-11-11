@@ -10,6 +10,7 @@ import jcgc.play.util.ScannerUtils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
@@ -135,6 +136,10 @@ public class Main {
                     int duration = Integer.parseInt(data[1]);
                     Genre genre = Genre.valueOf(data[2].toUpperCase());
                     double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
+                    LocalDate releaseDate = LocalDate.parse(data[4]);
+
+                    Movie movie = new Movie(title, duration, genre, score);
+                    movie.setReleaseDate(releaseDate);
                 }
 
             });
