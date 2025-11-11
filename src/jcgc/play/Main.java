@@ -5,12 +5,9 @@ import jcgc.play.content.Movie;
 import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
+import jcgc.play.util.FileUtils;
 import jcgc.play.util.ScannerUtils;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
@@ -125,39 +122,6 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("content.txt"));
-
-            lines.forEach(line -> {
-                String[] data = line.split("\\|");
-
-                if (data.length == 5) {
-                    String title = data[0];
-                    int duration = Integer.parseInt(data[1]);
-                    Genre genre = Genre.valueOf(data[2].toUpperCase());
-                    double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
-                    LocalDate releaseDate = LocalDate.parse(data[4]);
-
-                    Movie movie = new Movie(title, duration, genre, score);
-                    movie.setReleaseDate(releaseDate);
-                }
-
-            });
-        } catch (IOException e) {
-            System.out.println("Error reading content.txt");
-        }
-
-        platform.addMovie(new Movie("Shrek", 90, Genre.COMEDY, 4));
-        platform.addMovie(new Movie("Inception", 148, Genre.SCIENCE_FICTION));
-        platform.addMovie(new Movie("Titanic", 195, Genre.DRAMA, 4.6));
-        platform.addMovie(new Movie("John Wick", 110, Genre.ACTION, 4.2));
-        platform.addMovie(new Movie("El Conjuro", 120, Genre.TERROR, 3.0));
-        platform.addMovie(new Movie("Finding Nemo", 100, Genre.COMEDY, 4.3));
-        platform.addMovie(new Movie("Interstellar", 169, Genre.SCIENCE_FICTION, 5));
-        platform.addMovie(new Movie("Joker", 130, Genre.DRAMA, 4.7));
-        platform.addMovie(new Movie("Toy Story", 85, Genre.COMEDY,5));
-        platform.addMovie(new Movie("Avengers: Endgame", 181, Genre.ACTION, 4.8));
-        platform.addMovie(new Movie("Naruto Shipudden: The Last", 123, Genre.ANIME, 4.1));
-        platform.addMovie(new Movie("Your Name", 131, Genre.ANIME, 4.2));
+        platform.getMovies().addAll(FileUtils.readContentMovies());
     }
 }
