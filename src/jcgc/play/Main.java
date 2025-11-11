@@ -128,7 +128,15 @@ public class Main {
             List<String> lines = Files.readAllLines(Paths.get("content.txt"));
 
             lines.forEach(line -> {
-                System.out.println(line);
+                String[] data = line.split("\\|");
+
+                if (data.length == 5) {
+                    String title = data[0];
+                    int duration = Integer.parseInt(data[1]);
+                    Genre genre = Genre.valueOf(data[2].toUpperCase());
+                    double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
+                }
+
             });
         } catch (IOException e) {
             System.out.println("Error reading content.txt");
