@@ -7,6 +7,9 @@ import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.ScannerUtils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class Main {
@@ -121,6 +124,16 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("content.txt"));
+
+            lines.forEach(line -> {
+                System.out.println(line);
+            });
+        } catch (IOException e) {
+            System.out.println("Error reading content.txt");
+        }
+
         platform.addMovie(new Movie("Shrek", 90, Genre.COMEDY, 4));
         platform.addMovie(new Movie("Inception", 148, Genre.SCIENCE_FICTION));
         platform.addMovie(new Movie("Titanic", 195, Genre.DRAMA, 4.6));
