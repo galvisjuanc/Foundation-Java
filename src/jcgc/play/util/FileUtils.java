@@ -22,7 +22,7 @@ public class FileUtils {
             List<String> lines = Files.readAllLines(Paths.get(FILE_NAME));
 
             lines.forEach(line -> {
-                String[] data = line.split("\\|");
+                String[] data = line.split("\\" + SEPARATOR);
 
                 if (data.length == 5) {
                     String title = data[0];
