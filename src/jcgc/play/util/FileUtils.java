@@ -15,6 +15,18 @@ public class FileUtils {
     public static final String FILE_NAME = "content.txt";
     public static final String SEPARATOR = "|";
 
+    public static void writeContent(Movie movieContent) {
+        String line = String.join(SEPARATOR,
+                movieContent.getTitle(),
+                String.valueOf(movieContent.getDuration()),
+                movieContent.getGenre().name(),
+                String.valueOf(movieContent.getScore()),
+                movieContent.getReleaseDate().toString()
+        );
+
+        System.out.println(line);
+    }
+
     public static List<Movie> readContentMovies() {
         List<Movie> moviesFromFileContent = new ArrayList<>();
 

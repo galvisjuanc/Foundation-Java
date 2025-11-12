@@ -4,6 +4,7 @@ import jcgc.play.content.Genre;
 import jcgc.play.content.Movie;
 import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
+import jcgc.play.util.FileUtils;
 
 import java.util.*;
 
@@ -26,6 +27,7 @@ public class Platform {
             throw new MovieExistException(movie.getTitle());
         }
 
+        FileUtils.writeContent(movie);
         this.movies.add(movie);
     }
 
