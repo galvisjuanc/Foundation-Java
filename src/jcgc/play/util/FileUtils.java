@@ -6,6 +6,7 @@ import jcgc.play.content.Movie;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,14 @@ public class FileUtils {
                 movieContent.getReleaseDate().toString()
         );
 
-        System.out.println(line);
+        try {
+            Files.writeString(Paths.get(FILE_NAME),
+                    line + System.lineSeparator(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            System.out.println("Error writing the file. " + e.getMessage());
+        }
     }
 
     public static List<Movie> readContentMovies() {
