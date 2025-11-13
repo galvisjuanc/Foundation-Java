@@ -1,6 +1,6 @@
 package jcgc.play.platform;
 
-import jcgc.play.content.Movie;
+import jcgc.play.content.Content;
 
 import java.time.LocalDateTime;
 
@@ -16,9 +16,9 @@ public class User {
         this.createdDate = LocalDateTime.now();
     }
 
-    public void watch(Movie movie) {
+    public void watch(Content content) {
         System.out.println(name + " is watching...");
-        movie.play();
+        content.play();
     }
 
     public String getName() {

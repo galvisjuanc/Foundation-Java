@@ -1,7 +1,7 @@
 package jcgc.play;
 
 import jcgc.play.content.Genre;
-import jcgc.play.content.Movie;
+import jcgc.play.content.Content;
 import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
@@ -54,7 +54,7 @@ public class Main {
                     double score = ScannerUtils.getDouble("Score");
 
                     try {
-                        platform.addMovie(new Movie(name, duration, genre, score));
+                        platform.addMovie(new Content(name, duration, genre, score));
                     } catch (MovieExistException e) {
                         System.out.println(e.getMessage());
                     }
@@ -68,10 +68,10 @@ public class Main {
 
                 case LOOK_TITLE -> {
                     String lookTitle = ScannerUtils.getText("Name of the movie by title to look for: ");
-                    Movie movie = platform.lookForTitle(lookTitle);
+                    Content content = platform.lookForTitle(lookTitle);
 
-                    if (movie != null) {
-                        System.out.println(movie.getTechnicalDatasheet());
+                    if (content != null) {
+                        System.out.println(content.getTechnicalDatasheet());
                     } else {
                         System.out.println(lookTitle + " does not exist inside the platform --> " + platform.getName());
                     }
@@ -80,25 +80,25 @@ public class Main {
                 case LOOK_GENRE -> {
                     Genre lookGenre = ScannerUtils.getGenre("Name of the Genre we're looking for: ");
 
-                    List<Movie> moviesByGenre = platform.lookForGenre(lookGenre);
+                    List<Content> moviesByGenre = platform.lookForGenre(lookGenre);
                     System.out.println(moviesByGenre.size() + " found for this genre: " + lookGenre);
                     moviesByGenre.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
                 }
 
                 case LOOK_POPULAR_MOVIES -> {
                     int quantity = ScannerUtils.getInt("Quantity of movies to look for: ");
-                    List<Movie> popularMovies = platform.getPopularMovies(quantity);
+                    List<Content> popularContents = platform.getPopularMovies(quantity);
 
-                    popularMovies.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
+                    popularContents.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
                 }
 
                 case PLAY -> {
                     String playTitle = ScannerUtils.getText("Name of the movie by title to play: ");
-                    Movie movie = platform.lookForTitle(playTitle);
+                    Content content = platform.lookForTitle(playTitle);
 
-                    if (movie != null) {
-                        platform.playMovie(movie);
-                        System.out.println("The movie has been deleted from the platform. --> " + movie.getTitle());
+                    if (content != null) {
+                        platform.playMovie(content);
+                        System.out.println("The movie has been deleted from the platform. --> " + content.getTitle());
                     } else  {
                         System.out.println(playTitle + " does not exist.");
                     }
@@ -106,11 +106,11 @@ public class Main {
 
                 case DELETE -> {
                     String titleToDelete = ScannerUtils.getText("Name of the movie by title to delete: ");
-                    Movie movie = platform.lookForTitle(titleToDelete);
+                    Content content = platform.lookForTitle(titleToDelete);
 
-                    if (movie != null) {
-                        platform.deleteMovie(movie);
-                        System.out.println("The movie has been deleted from the platform. --> " + movie.getTitle());
+                    if (content != null) {
+                        platform.deleteMovie(content);
+                        System.out.println("The movie has been deleted from the platform. --> " + content.getTitle());
                     } else  {
                         System.out.println(titleToDelete + " does not exist inside the platform --> " + platform.getName());
                     }
