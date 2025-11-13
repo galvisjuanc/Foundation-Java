@@ -1,5 +1,6 @@
 package jcgc.play;
 
+import jcgc.play.content.Documental;
 import jcgc.play.content.Genre;
 import jcgc.play.content.Content;
 import jcgc.play.content.SummaryContent;
@@ -48,13 +49,20 @@ public class Main {
 
             switch (optionChosen) {
                 case ADD -> {
+                    int contentType = ScannerUtils.getInt("What type of content do you want to add?\n1. Movie.\n2. Documental. ");
+
                     String name = ScannerUtils.getText("Content Name");
                     Genre genre = ScannerUtils.getGenre("Genre");
                     int duration = ScannerUtils.getInt("Duration");
                     double score = ScannerUtils.getDouble("Score");
 
                     try {
-                        platform.addMovie(new Content(name, duration, genre, score));
+                        if (contentType == 1) {
+                            platform.addMovie(new Content(name, duration, genre, score));
+                        } else {
+                            String narrator = ScannerUtils.getText("Narrator Name: ");
+                            platform.addMovie(new Documental(name, duration, genre, score, narrator));
+                        }
                     } catch (MovieExistException e) {
                         System.out.println(e.getMessage());
                     }

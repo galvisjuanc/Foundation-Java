@@ -12,4 +12,8 @@ public class Documental extends Content {
         super(title, duration, genre, score);
         this.narrator = narrator;
     }
+
+    public String getNarrator() {
+        return narrator;
+    }
 }
