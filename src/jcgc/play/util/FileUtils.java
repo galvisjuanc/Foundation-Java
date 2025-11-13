@@ -1,7 +1,7 @@
 package jcgc.play.util;
 
 import jcgc.play.content.Genre;
-import jcgc.play.content.Movie;
+import jcgc.play.content.Content;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +16,7 @@ public class FileUtils {
     public static final String FILE_NAME = "content.txt";
     public static final String SEPARATOR = "|";
 
-    public static void writeContent(Movie movieContent) {
+    public static void writeContent(Content movieContent) {
         String line = String.join(SEPARATOR,
                 movieContent.getTitle(),
                 String.valueOf(movieContent.getDuration()),
@@ -35,8 +35,8 @@ public class FileUtils {
         }
     }
 
-    public static List<Movie> readContentMovies() {
-        List<Movie> moviesFromFileContent = new ArrayList<>();
+    public static List<Content> readContentMovies() {
+        List<Content> moviesFromFileContent = new ArrayList<>();
 
         try {
             List<String> lines = Files.readAllLines(Paths.get(FILE_NAME));
@@ -51,10 +51,10 @@ public class FileUtils {
                     double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
                     LocalDate releaseDate = LocalDate.parse(data[4]);
 
-                    Movie movie = new Movie(title, duration, genre, score);
-                    movie.setReleaseDate(releaseDate);
+                    Content content = new Content(title, duration, genre, score);
+                    content.setReleaseDate(releaseDate);
 
-                    moviesFromFileContent.add(movie);
+                    moviesFromFileContent.add(content);
                 }
 
             });

@@ -2,7 +2,7 @@ package jcgc.play.content;
 
 import java.time.LocalDate;
 
-public class Movie {
+public class Content {
 
     private String title;
     private String description;
@@ -12,7 +12,7 @@ public class Movie {
     private double score;
     private boolean available;
 
-    public Movie(String title, int duration, Genre genre) {
+    public Content(String title, int duration, Genre genre) {
         this.title = title;
         this.duration = duration;
         this.genre = genre;
@@ -20,7 +20,7 @@ public class Movie {
         this.available = true;
     }
 
-    public Movie(String title, int duration, Genre genre, double score) {
+    public Content(String title, int duration, Genre genre, double score) {
         this(title, duration, genre);
         this.giveScore(score);
     }
