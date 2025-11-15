@@ -1,5 +1,6 @@
 package jcgc.play.util;
 
+import jcgc.play.content.Documental;
 import jcgc.play.content.Genre;
 import jcgc.play.content.Content;
 
@@ -24,6 +25,14 @@ public class FileUtils {
                 String.valueOf(movieContent.getScore()),
                 movieContent.getReleaseDate().toString()
         );
+
+        String finalLine;
+
+        if(movieContent instanceof Documental documental) {
+            finalLine = "DOCUMENTAL" + SEPARATOR + line + SEPARATOR + documental.getNarrator();
+        } else {
+            finalLine = "MOVIE" + SEPARATOR + line;
+        }
 
         try {
             Files.writeString(Paths.get(FILE_NAME),
