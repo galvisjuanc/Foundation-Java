@@ -36,7 +36,7 @@ public class FileUtils {
 
         try {
             Files.writeString(Paths.get(FILE_NAME),
-                    line + System.lineSeparator(),
+                    finalLine + System.lineSeparator(),
                     StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
@@ -53,14 +53,26 @@ public class FileUtils {
             lines.forEach(line -> {
                 String[] data = line.split("\\" + SEPARATOR);
 
-                if (data.length == 5) {
+                String typeContent = data[0];
+
+                if(("MOVIE".equals(typeContent) && data.length == 6) ||
+                        ("DOCUMENTAL".equals(typeContent) && data.length == 7)) {
+
                     String title = data[0];
                     int duration = Integer.parseInt(data[1]);
                     Genre genre = Genre.valueOf(data[2].toUpperCase());
                     double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
                     LocalDate releaseDate = LocalDate.parse(data[4]);
 
-                    Content content = new Content(title, duration, genre, score);
+                    Content content;
+
+                    if("MOVIE".equals(typeContent)) {
+                        content = new Content(title, duration, genre, score);
+                    } else {
+                        String narrator = data[6];
+                        content = new Documental(title, duration,genre,score,narrator);
+                    }
+
                     content.setReleaseDate(releaseDate);
 
                     moviesFromFileContent.add(content);
