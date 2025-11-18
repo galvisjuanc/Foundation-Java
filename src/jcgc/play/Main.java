@@ -1,9 +1,6 @@
 package jcgc.play;
 
-import jcgc.play.content.Documental;
-import jcgc.play.content.Genre;
-import jcgc.play.content.Content;
-import jcgc.play.content.SummaryContent;
+import jcgc.play.content.*;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.FileUtils;
@@ -22,6 +19,8 @@ public class Main {
     public static final int LOOK_GENRE = 4;
     public static final int LOOK_POPULAR_MOVIES = 5;
     public static final int PLAY = 6;
+    public static final int LOOK_FOR_TYPE = 7;
+    public static final int LOOK_FOR_GENRES = 8;
     public static final int DELETE = 8;
     public static final int EXIT = 9;
 
@@ -41,6 +40,7 @@ public class Main {
                     4. Look for Genre.
                     5. Look for Popular Movies.
                     6. Play.
+                    7. Look for type.
                     8. Delete.
                     9. Exit.
                     
@@ -109,6 +109,18 @@ public class Main {
                         System.out.println("The movie has been deleted from the platform. --> " + content.getTitle());
                     } else  {
                         System.out.println(playTitle + " does not exist.");
+                    }
+                }
+
+                case LOOK_FOR_TYPE -> {
+                    int contentType = ScannerUtils.getInt("What type of content do you want to look for?\n1. Movie.\n2. Documental. ");
+
+                    if(contentType == 1) {
+                        List<Movie> movieList = platform.getAllMovies();
+                        movieList.forEach(contentMovies -> System.out.println(contentMovies.getTechnicalDatasheet() + "\n"));
+                    } else {
+                        List<Documental> documentalList = platform.getAllDocumentals();
+                        documentalList.forEach(contentDocumental -> System.out.println(contentDocumental.getTechnicalDatasheet() + "\n"));
                     }
                 }
 
