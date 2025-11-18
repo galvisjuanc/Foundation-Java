@@ -1,9 +1,6 @@
 package jcgc.play.platform;
 
-import jcgc.play.content.Genre;
-import jcgc.play.content.Content;
-import jcgc.play.content.Movie;
-import jcgc.play.content.SummaryContent;
+import jcgc.play.content.*;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.util.FileUtils;
 
@@ -91,6 +88,13 @@ public class Platform {
         return movies.stream()
                 .filter(movieContent -> movieContent instanceof Movie)
                 .map(filteredContent -> (Movie) filteredContent)
+                .toList();
+    }
+
+    public List<Documental> getAllDocumentals() {
+        return movies.stream()
+                .filter(documentalContent -> documentalContent instanceof Documental)
+                .map(filteredContent -> (Documental) filteredContent)
                 .toList();
     }
 
