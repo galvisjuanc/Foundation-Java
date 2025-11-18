@@ -86,8 +86,8 @@ public class Platform {
 
     public List<Movie> getAllMovies() {
         return movies.stream()
-                .filter(movieContent -> movieContent instanceof Movie)
-                .map(filteredContent -> (Movie) filteredContent)
+                .filter(Movie.class::isInstance)
+                .map(Movie.class::cast)
                 .toList();
     }
 
