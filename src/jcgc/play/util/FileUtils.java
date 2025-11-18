@@ -58,11 +58,11 @@ public class FileUtils {
                 if(("MOVIE".equals(typeContent) && data.length == 6) ||
                         ("DOCUMENTAL".equals(typeContent) && data.length == 7)) {
 
-                    String title = data[0];
-                    int duration = Integer.parseInt(data[1]);
-                    Genre genre = Genre.valueOf(data[2].toUpperCase());
-                    double score = data[3].isBlank() ? 0 : Double.parseDouble(data[3]);
-                    LocalDate releaseDate = LocalDate.parse(data[4]);
+                    String title = data[1];
+                    int duration = Integer.parseInt(data[2]);
+                    Genre genre = Genre.valueOf(data[3].toUpperCase());
+                    double score = data[4].isBlank() ? 0 : Double.parseDouble(data[4]);
+                    LocalDate releaseDate = LocalDate.parse(data[5]);
 
                     Content content;
 
