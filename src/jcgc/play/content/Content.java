@@ -2,7 +2,7 @@ package jcgc.play.content;
 
 import java.time.LocalDate;
 
-public class Content {
+public abstract class Content {
 
     private String title;
     private String description;
