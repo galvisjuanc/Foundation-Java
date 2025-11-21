@@ -25,9 +25,7 @@ public abstract class Content {
         this.giveScore(score);
     }
 
-    public void play() {
-        System.out.println("Playing: " + title);
-    }
+    public abstract void play();
 
     public String getTechnicalDatasheet() {
         return title + " (" + releaseDate.getYear() + ")\n" +
