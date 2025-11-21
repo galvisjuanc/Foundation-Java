@@ -58,7 +58,7 @@ public class Main {
 
                     try {
                         if (contentType == 1) {
-                            platform.addMovie(new Content(name, duration, genre, score));
+                            platform.addMovie(new Movie(name, duration, genre, score));
                         } else {
                             String narrator = ScannerUtils.getText("Narrator Name: ");
                             platform.addMovie(new Documental(name, duration, genre, score, narrator));

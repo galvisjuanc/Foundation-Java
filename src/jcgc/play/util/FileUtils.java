@@ -3,6 +3,7 @@ package jcgc.play.util;
 import jcgc.play.content.Documental;
 import jcgc.play.content.Genre;
 import jcgc.play.content.Content;
+import jcgc.play.content.Movie;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -67,7 +68,7 @@ public class FileUtils {
                     Content content;
 
                     if("MOVIE".equals(typeContent)) {
-                        content = new Content(title, duration, genre, score);
+                        content = new Movie(title, duration, genre, score);
                     } else {
                         String narrator = data[6];
                         content = new Documental(title, duration,genre,score,narrator);
