@@ -1,6 +1,10 @@
 package jcgc.play;
 
-import jcgc.play.content.*;
+import jcgc.play.content.Content;
+import jcgc.play.content.Documental;
+import jcgc.play.content.Genre;
+import jcgc.play.content.Movie;
+import jcgc.play.content.SummaryContent;
 import jcgc.play.exception.MovieExistException;
 import jcgc.play.platform.Platform;
 import jcgc.play.util.FileUtils;
