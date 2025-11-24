@@ -1,6 +1,6 @@
 package jcgc.play.content;
 
-public class Documental extends Content {
+public class Documental extends Content implements Promocionable {
 
     private String narrator;
 
@@ -20,5 +20,10 @@ public class Documental extends Content {
 
     public String getNarrator() {
         return narrator;
+    }
+
+    @Override
+    public String promocionar() {
+        return "Discover the documental : " + this.getTitle() + " narrado por " + this.getNarrator();
     }
 }
