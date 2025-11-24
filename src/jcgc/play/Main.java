@@ -33,7 +33,8 @@ public class Main {
         System.out.println(PLATFORM_NAME + " v" + VERSION);
 
         loadMovies(platform);
-        System.out.println("More than " + platform.getTotalDuration() + " minutes of content movies! \n");
+        System.out.println("More than " + platform.getTotalDuration() + " minutes of content movies ! \n");
+        platform.getAllPromocionables().forEach(promocionable -> System.out.println(promocionable.promocionar()));
 
         while (true) {
             int optionChosen = ScannerUtils.getInt("""
