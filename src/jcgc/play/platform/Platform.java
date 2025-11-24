@@ -8,12 +8,12 @@ import java.util.*;
 
 public class Platform {
     private String name;
-    private List<Content> movies;
+    private List<Content> contents;
     private Map<Content, Integer> moviesMapViews;
 
     public Platform(String name) {
         this.name = name;
-        this.movies = new ArrayList<>();
+        this.contents = new ArrayList<>();
         this.moviesMapViews = new HashMap<>();
     }
 
@@ -26,7 +26,7 @@ public class Platform {
         }
 
         FileUtils.writeContent(content);
-        this.movies.add(content);
+        this.contents.add(content);
     }
 
     public void playMovie(Content content) {
@@ -43,58 +43,65 @@ public class Platform {
     }
 
     public List<String> showTitles() {
-        return movies.stream()
+        return contents.stream()
                 .map(Content::getTitle)
                 .toList();
     }
 
     public List<SummaryContent> getSummaryContents() {
-        return movies.stream()
+        return contents.stream()
                 .map(mc -> new SummaryContent(mc.getTitle(), mc.getDuration(), mc.getGenre()))
                 .toList();
     }
 
     public void deleteMovie(Content content) {
-        this.movies.remove(content);
+        this.contents.remove(content);
     }
 
     public Content lookForTitle(String title) {
-        return movies.stream()
+        return contents.stream()
                 .filter(movieContent -> movieContent.getTitle().equalsIgnoreCase(title))
                 .findFirst()
                 .orElse(null);
     }
 
     public List<Content> lookForGenre(Genre genre) {
-        return movies.stream()
+        return contents.stream()
                 .filter(movieContent -> movieContent.getGenre().equals(genre))
                 .toList();
     }
 
     public int getTotalDuration() {
-        return movies.stream()
+        return contents.stream()
                 .mapToInt(Content::getDuration)
                 .sum();
     }
 
     public List<Content> getPopularMovies(int quantity) {
-        return movies.stream()
+        return contents.stream()
                 .sorted(Comparator.comparing(Content::getScore).reversed())
                 .limit(quantity)
                 .toList();
     }
 
     public List<Movie> getAllMovies() {
-        return movies.stream()
+        return contents.stream()
                 .filter(Movie.class::isInstance)
                 .map(Movie.class::cast)
                 .toList();
     }
 
     public List<Documental> getAllDocumentals() {
-        return movies.stream()
+        return contents.stream()
                 .filter(Documental.class::isInstance)
                 .map(Documental.class::cast)
+                .toList();
+    }
+
+    public List<Promocionable> getAllPromocionables() {
+        return contents.stream()
+                .filter(Promocionable.class::isInstance)
+                .map(Promocionable.class::cast)
                 .toList();
     }
 
@@ -102,7 +109,7 @@ public class Platform {
         return name;
     }
 
-    public List<Content> getMovies() {
-        return movies;
+    public List<Content> getContents() {
+        return contents;
     }
 }
