@@ -100,8 +100,8 @@ public class Platform {
 
     public List<Promocionable> getAllPromocionables() {
         return contents.stream()
-                .filter(Promocionable.class::isInstance)
-                .map(Promocionable.class::cast)
+                .filter(content -> content instanceof Promocionable)
+                .map(contenidoProm -> (Promocionable) contenidoProm)
                 .toList();
     }
 
