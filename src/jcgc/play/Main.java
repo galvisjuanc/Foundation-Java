@@ -146,6 +146,6 @@ public class Main {
     }
 
     private static void loadMovies(Platform platform) {
-        platform.getMovies().addAll(FileUtils.readContentMovies());
+        platform.getContents().addAll(FileUtils.readContentMovies());
     }
 }
